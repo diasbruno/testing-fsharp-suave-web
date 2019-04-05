@@ -5,14 +5,15 @@ bootstrap:
 
 deps:
 	./.paket/paket.exe install
+	dotnet restore
 
 init: bootstrap deps
 
 build:
-	fsharpc App.fs --staticlink:Suave -r packages/Suave/lib/net461/Suave.dll
+	dotnet build
 
 run:
-	./App.exe
+	dotnet run
 
 serve: build run
 
